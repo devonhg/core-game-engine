@@ -16,7 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Mini Project Platformer"
-run/main_scene="res://Worlds/World.tscn"
+run/main_scene="res://Intro And Credits/intro.tscn"
 boot_splash/fullsize=false
 config/icon="res://Sprites/icon.png"
 
