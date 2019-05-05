@@ -1,0 +1,61 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Resources/Sprites/Branding/pfg_logo-min.png" type="Texture" id=1]
+[ext_resource path="res://Scenes/Intro And Credits/intro.gd" type="Script" id=2]
+[ext_resource path="res://Resources/Sprites/icon-red.png" type="Texture" id=3]
+[ext_resource path="res://Resources/Sprites/icon.png" type="Texture" id=4]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Fade In"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( -0.1, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "Fade Out"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[node name="Node2D" type="Node2D"]
+position = Vector2( -1, 0 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 583.0
+margin_bottom = 397.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="IntroGraphics" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 63.2921, 35.5458 )
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+graphics = [ ExtResource( 1 ), ExtResource( 3 ), ExtResource( 4 ) ]
+startscreen = "res://Scenes/World.tscn"
+
+[node name="GraphicTimer" type="Timer" parent="IntroGraphics"]
+autostart = true
+
+[node name="GraphicAnimator" type="AnimationPlayer" parent="IntroGraphics"]
+"anims/Fade In" = SubResource( 1 )
+"anims/Fade Out" = SubResource( 2 )
+
+[connection signal="timeout" from="IntroGraphics/GraphicTimer" to="IntroGraphics" method="_on_GraphicTimer_timeout"]

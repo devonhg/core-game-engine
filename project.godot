@@ -15,19 +15,22 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Mini Project Platformer"
-run/main_scene="res://Intro And Credits/intro.tscn"
-boot_splash/fullsize=false
-config/icon="res://Sprites/icon.png"
+config/name="Core Game Project"
+run/main_scene="res://Scenes/Intro And Credits/intro.tscn"
+boot_splash/image="res://Resources/Sprites/Branding/splash.png"
+boot_splash/bg_color=Color( 0, 0, 0, 1 )
+config/icon="res://Resources/Sprites/icon.png"
 
 [autoload]
 
-FullWindow="*res://Initiation Scripts/pixel-perfect-scaling.gd"
+FullWindow="*res://Systems/Initiation Scripts/pixel-perfect-scaling.gd"
 
 [display]
 
 window/size/width=240
 window/size/height=160
+window/size/resizable=false
+window/size/borderless=true
 window/stretch/mode="viewport"
 
 [importer_defaults]
