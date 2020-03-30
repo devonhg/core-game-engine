@@ -1,0 +1,92 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Scenes/Title Screen/Menu.gd" type="Script" id=1]
+[ext_resource path="res://Resources/Sprites/Branding/pfg_logo-min.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/Title Screen/Buttons/btn_NewGame.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Title Screen/Buttons/btn_Continue.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Title Screen/Buttons/btn_Options.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Title Screen/Buttons/btn_Credits.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Resources/Sprites/icon-small.png" type="Texture" id=7]
+[ext_resource path="res://Resources/Fonts/color_basic.tres" type="DynamicFont" id=8]
+
+[node name="TitleScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Menu" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+
+[node name="Logo" type="TextureRect" parent="Menu"]
+margin_right = 240.0
+margin_bottom = 43.0
+texture = ExtResource( 2 )
+stretch_mode = 4
+
+[node name="CenterRow" type="HBoxContainer" parent="Menu"]
+margin_top = 47.0
+margin_right = 240.0
+margin_bottom = 111.0
+size_flags_vertical = 3
+
+[node name="ButtonsAndGraphic" type="VBoxContainer" parent="Menu/CenterRow"]
+margin_right = 118.0
+margin_bottom = 64.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 0
+alignment = 1
+
+[node name="NewGame" parent="Menu/CenterRow/ButtonsAndGraphic" instance=ExtResource( 3 )]
+margin_top = 4.0
+margin_right = 118.0
+margin_bottom = 18.0
+theme = null
+
+[node name="Continue" parent="Menu/CenterRow/ButtonsAndGraphic" instance=ExtResource( 4 )]
+margin_top = 18.0
+margin_right = 118.0
+margin_bottom = 32.0
+theme = null
+
+[node name="Options" parent="Menu/CenterRow/ButtonsAndGraphic" instance=ExtResource( 5 )]
+margin_top = 32.0
+margin_right = 118.0
+margin_bottom = 46.0
+theme = null
+
+[node name="Credits" parent="Menu/CenterRow/ButtonsAndGraphic" instance=ExtResource( 6 )]
+margin_top = 46.0
+margin_right = 118.0
+margin_bottom = 60.0
+theme = null
+
+[node name="CenterContainer" type="CenterContainer" parent="Menu/CenterRow"]
+margin_left = 122.0
+margin_right = 240.0
+margin_bottom = 64.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Characters" type="TextureRect" parent="Menu/CenterRow/CenterContainer"]
+margin_left = 27.0
+margin_right = 91.0
+margin_bottom = 64.0
+texture = ExtResource( 7 )
+
+[node name="FooterLabel" type="Label" parent="Menu"]
+margin_top = 115.0
+margin_right = 240.0
+margin_bottom = 160.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+custom_fonts/font = ExtResource( 8 )
+text = "Game Legal, Version info, etc"
+align = 1
+valign = 2
+uppercase = true
+
